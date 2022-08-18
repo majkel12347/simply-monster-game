@@ -47,11 +47,18 @@ function strongAttack() {
   onDamage('STRONG_ATTACK');
 }
 
-function playerHealHandler() {
+function healPlayerHandler() {
+  let healValue;
+  if (currentPlayerHealth >= chosenMaxLife - healValue) {
+    console.log("you can't heal more than you initial health");
+    healValue = chosenMaxLife - HEAL_VALUE;
+  }
   increasePlayerHealth(HEAL_VALUE);
+  currentPlayerHealth += HEAL_VALUE;
+
   endRound();
 }
 
 attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttack);
-healBtn.addEventListener('click', playerHealHandler);
+healBtn.addEventListener('click', healPlayerHandler);
