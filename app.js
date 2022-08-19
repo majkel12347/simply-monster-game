@@ -13,6 +13,12 @@ let hasBonusLife = true;
 
 adjustHealthBars(chosenMaxLife);
 
+function reset() {
+  currentMonsterHealth = chosenMaxLife;
+  currentPlayerHealth = chosenMaxLife;
+  resetGame();
+}
+
 function endRound() {
   let initialPlayerHealth = currentPlayerHealth;
 
