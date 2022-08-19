@@ -6,6 +6,10 @@ const HEAL_VALUE = 20;
 const MONSTER_ATTACK_VALUE = 14;
 const MONSTER_STRONG_ATTACK_VALUE = 24;
 
+// avoid miss typing
+const MODE_ATTACK = 'ATTACK'; // or number like in this case 0
+const MODE_STRONG_ATTACK = 'STRONG_ATTACK'; // or bumber like in this case 1
+
 const enteredValue = parseInt(prompt('Maximum life for You and the monster'));
 
 if (isNaN(enteredValue) || enteredValue <= 0) {
@@ -54,9 +58,9 @@ function endRound() {
 
 function onDamage(mode) {
   let maxDamage;
-  if (mode === 'ATTACK') {
+  if (mode === MODE_ATTACK) {
     maxDamage = ATTACK_VALUE;
-  } else if (mode === 'STRONG_ATTACK') {
+  } else if (mode === MODE_STRONG_ATTACK) {
     maxDamage = STRONG_ATTACK_VALUE;
   }
 
@@ -67,11 +71,11 @@ function onDamage(mode) {
 }
 
 function attackHandler() {
-  onDamage('ATTACK');
+  onDamage(MODE_ATTACK);
 }
 
 function strongAttack() {
-  onDamage('STRONG_ATTACK');
+  onDamage(MODE_STRONG_ATTACK);
 }
 
 function healPlayerHandler() {
