@@ -9,12 +9,19 @@ const attackValue = 10;
 let currentPlayerHealth = chosenMaxLife;
 let currentMonsterHealth = chosenMaxLife;
 
-// adding strong attack function
-function strongAttack() {
-  let damage = dealMonsterDamage(STRONG_ATTACK_VALUE);
+// adding function to minimize and avoid redundant function!!!
+function attackMonster(mode) {
+  let maxDamage;
+  if (maxDamage === 'ATTACK') {
+    maxDamage = ATTACK_VALUE;
+  } else if (maxDamage === 'STRONG_ATTACK') {
+    maxDamage = STRONG_ATTACK_VALUE;
+  }
+  // set damage
+  let damage = dealMonsterDamage(maxDamage);
   currentMonsterHealth -= damage;
 
-  let monsterDamage = dealPlayerDamage(ATTACK_MONSTER_VALUE);
+  let monsterDamage = dealPlayerDamage(maxDamage);
   currentPlayerHealth -= monsterDamage;
 
   if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
@@ -24,25 +31,17 @@ function strongAttack() {
   } else if (currentPlayerHealth <= 0 && currentMonsterHealth <= 0) {
     console.log('Draw!!!');
   }
+}
+
+// adding strong attack function
+function strongAttackHandler() {
+  attackMonster('ATTACK');
 }
 
 //1 adding attack function
 function attackHandler() {
-  // set damage
-  let damage = dealMonsterDamage(ATTACK_VALUE);
-  currentMonsterHealth -= damage;
-
-  let monsterDamage = dealPlayerDamage(ATTACK_MONSTER_VALUE);
-  currentPlayerHealth -= monsterDamage;
-
-  if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
-    console.log('You lose!!!');
-  } else if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
-    console.log('You win!!!');
-  } else if (currentPlayerHealth <= 0 && currentMonsterHealth <= 0) {
-    console.log('Draw!!!');
-  }
+  attackMonster('STRONG_ATTACK');
 }
 
 attackBtn.addEventListener('click', attackHandler);
-strongAttackBtn.addEventListener('click', strongAttack);
+strongAttackBtn.addEventListener('click', strongAttackHandler);
