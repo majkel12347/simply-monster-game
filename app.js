@@ -168,7 +168,7 @@ function attackMonster(mode) {
   } else if (mode === STRONG_ATTACK_MODE) {
     maxDamage = STRONG_ATTACK_VALUE;
     logEvent = LOG_EVENT_STRONG_ATTACK;
-  } */
+  }, */
 
   const damage = dealMonsterDamage(maxDamage);
   currentMonsterHealth -= damage;
