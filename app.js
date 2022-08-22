@@ -159,15 +159,17 @@ function healPlayerHandler() {
 }
 
 function attackMonster(mode) {
-  const maxDamage = mode === 'ATTACK' ? ATTACK_VALUE : STRONG_ATTACK_VALUE;
-  let logEvent = mode === 'STRONG_ATTACK';
-  /* if (mode === 'ATTACK') {
+  const maxDamage = mode === ATTACK_MODE ? ATTACK_PLAYER : STRONG_ATTACK_VALUE;
+  let logEvent =
+    mode === ATTACK_MODE ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_STRONG_ATTACK;
+  /* if (mode === ATTACK_MODE) {
     maxDamage = ATTACK_PLAYER;
     logEvent = LOG_EVENT_PLAYER_ATTACK;
-  } else if (mode === 'STRONG_ATTACK') {
+  } else if (mode === STRONG_ATTACK_MODE) {
     maxDamage = STRONG_ATTACK_VALUE;
     logEvent = LOG_EVENT_STRONG_ATTACK;
   } */
+
   const damage = dealMonsterDamage(maxDamage);
   currentMonsterHealth -= damage;
 
