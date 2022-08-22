@@ -12,13 +12,29 @@ const STRONG_ATTACK_MODE = 'STRONG_ATTACK';
 
 const HEAL_VALUE = 20;
 
-let chosenMaxLife = 100;
+const enteredValue = prompt('enter max life number');
+
+let chosenMaxLife = parseInt(enteredValue);
 let currentPlayerHealth = chosenMaxLife;
 let currentMonsterHealth = chosenMaxLife;
 let hasBonusLife = true;
 
+function inputHandler() {
+  if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
+    chosenMaxLife = 100;
+  }
+}
+
+inputHandler();
+
 //2. create all functions
 adjustHealthBars(chosenMaxLife);
+
+function reset() {
+  currentPlayerHealth = chosenMaxLife;
+  currentMonsterHealth = chosenMaxLife;
+  resetGame(chosenMaxLife);
+}
 
 function endRound() {
   let initialPlayerHealth = currentPlayerHealth;
@@ -41,6 +57,8 @@ function endRound() {
   } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     console.log('Draw!');
   }
+
+  if (currentPlayerHealth <= 0 || currentMonsterHealth <= 0) reset();
 }
 
 function healPlayerHandler() {
@@ -71,12 +89,12 @@ function attackMonster(mode) {
 
 // create attack function
 function attackHandler() {
-  attackMonster('ATTACK');
+  attackMonster(ATTACK_MODE);
 }
 
 // create strong attack function
 function strongAttack() {
-  attackMonster('STRONG_ATTACK');
+  attackMonster(STRONG_ATTACK_MODE);
 }
 
 // call functions when the btn's click
