@@ -1,15 +1,24 @@
+// 0. understand
+
+// 1. create necessary variables
 const maxLife = 100;
 
+const ATTACK_PLAYER = 10;
+const ATTACK_MONSTER = 17;
+
 let currentPlayerHealth = maxLife;
-let currentMonsterLife = maxLife;
+let currentMonsterHealth = maxLife;
 
-//1 add attack function
+// call function
+adjustHealthBars(maxLife);
+
+// create attack function
 function attackHandler() {
-  let damage = dealMonsterDamage(maxLife);
-  playerHealthBar -= damage;
+  let damage = dealMonsterDamage(ATTACK_PLAYER);
+  currentMonsterHealth -= damage;
 
-  let playerDamage = dealPlayerDamage(maxLife);
-  monsterHealthBar -= playerDamage;
+  let playerDamage = dealPlayerDamage(ATTACK_MONSTER);
+  currentPlayerHealth -= playerDamage;
 }
 
 attackBtn.addEventListener('click', attackHandler);
