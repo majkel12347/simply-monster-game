@@ -190,13 +190,13 @@ function strongAttack() {
 
 function printLogHandler() {
   // adding loop
-  let i = 0;
-  for (let key of battleLog) {
-    console.log(`#${i}`);
-    console.log(`${key} => ${battleLog[key]}`);
+  /*  for (let i = 0; i < battleLog.length; i++) {
+    const element = battleLog[i];
+    console.log(element);
+  } */
+  for (const logEntry of battleLog) {
+    console.log(`${logEntry} ## ${battleLog.length}`);
   }
-  i++;
-  console.log(battleLog);
 }
 
 // call functions when the btn's click
