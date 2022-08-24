@@ -205,7 +205,6 @@ function printLogHandler() {
     }
     i++;
   }
-  //console.log(battleLog);
 }
 
 // call functions when the btn's click
