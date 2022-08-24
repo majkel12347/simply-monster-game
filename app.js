@@ -20,7 +20,7 @@ const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
 const enteredValue = prompt('enter max life number');
-let chosenMaxLife = parseInt(enteredValue);
+let chosenMaxLife = Number(enteredValue);
 
 if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
   chosenMaxLife = 100;
@@ -197,7 +197,12 @@ function printLogHandler() {
     let element = battleLog[i];
     console.log(element);
   } */
-  console.log(battleLog);
+  let i = 0;
+  for (const logEntry of battleLog) {
+    console.log(logEntry);
+    //console.log(battleLog, logEntry);
+  }
+  //console.log(battleLog);
 }
 
 // call functions when the btn's click
