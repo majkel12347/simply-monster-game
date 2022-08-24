@@ -201,8 +201,7 @@ function printLogHandler() {
   for (const logEntry of battleLog) {
     console.log(`#####${i}`);
     for (const key in logEntry) {
-      const element = logEntry[key];
-      console.log(`${key} => ${element}`);
+      console.log(`${key} => ${logEntry[key]}`);
     }
     i++;
   }
