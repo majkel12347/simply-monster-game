@@ -159,7 +159,7 @@ function healPlayerHandler() {
 }
 
 function attackMonster(mode) {
-  const maxDamage = mode === ATTACK_MODE ? ATTACK_PLAYER : STRONG_ATTACK_VALUE;
+  let maxDamage = mode === ATTACK_MODE ? ATTACK_PLAYER : STRONG_ATTACK_VALUE;
   let logEvent =
     mode === ATTACK_MODE ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_STRONG_ATTACK;
   if (mode === ATTACK_MODE) {
@@ -189,6 +189,13 @@ function strongAttack() {
 }
 
 function printLogHandler() {
+  // adding loop
+  let i = 0;
+  for (let key of battleLog) {
+    console.log(`#${i}`);
+    console.log(`${key} => ${battleLog[key]}`);
+  }
+  i++;
   console.log(battleLog);
 }
 
