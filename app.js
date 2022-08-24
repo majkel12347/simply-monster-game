@@ -1,4 +1,4 @@
- // 0. understand
+// 0. understand
 
 // 1. create necessary variables
 
@@ -162,14 +162,13 @@ function attackMonster(mode) {
   const maxDamage = mode === ATTACK_MODE ? ATTACK_PLAYER : STRONG_ATTACK_VALUE;
   let logEvent =
     mode === ATTACK_MODE ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_STRONG_ATTACK;
-  /* if (mode === ATTACK_MODE) {
+  if (mode === ATTACK_MODE) {
     maxDamage = ATTACK_PLAYER;
     logEvent = LOG_EVENT_PLAYER_ATTACK;
   } else if (mode === STRONG_ATTACK_MODE) {
     maxDamage = STRONG_ATTACK_VALUE;
     logEvent = LOG_EVENT_STRONG_ATTACK;
-  } 
-
+  }
 
   const damage = dealMonsterDamage(maxDamage);
   currentMonsterHealth -= damage;
@@ -198,4 +197,3 @@ attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttack);
 healBtn.addEventListener('click', healPlayerHandler);
 logBtn.addEventListener('click', printLogHandler);
- 
