@@ -33,9 +33,16 @@ function getMaxLifeValues() {
   return parsedValue;
 }
 
-getMaxLifeValues();
+let chosenMaxLife;
 
-let parsedValue = getMaxLifeValues();
+// put to try only that pieces of code, what can't be controled, like input from above...
+try {
+  chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+  console.log(error);
+  chosenMaxLife = 100;
+}
+
 let currentPlayerHealth = chosenMaxLife;
 let currentMonsterHealth = chosenMaxLife;
 let hasBonusLife = true;
