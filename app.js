@@ -19,18 +19,26 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
 
-const enteredValue = prompt('enter max life number');
-let chosenMaxLife = Number(enteredValue);
+let battleLog = [];
+let lastLogEntry;
 
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-  chosenMaxLife = 100;
+// check for error input value by 'throw'
+function getMaxLifeValues() {
+  const enteredValue = prompt('enter max life number');
+  const parsedValue = parseInt(enteredValue);
+
+  if (isNaN(parsedValue) || parsedValue <= 0) {
+    throw { message: 'error!!! wrong input value type!' };
+  }
+  return parsedValue;
 }
 
+getMaxLifeValues();
+
+let parsedValue = getMaxLifeValues();
 let currentPlayerHealth = chosenMaxLife;
 let currentMonsterHealth = chosenMaxLife;
 let hasBonusLife = true;
-let battleLog = [];
-let lastLogEntry;
 
 //2. create all functions
 adjustHealthBars(chosenMaxLife);
