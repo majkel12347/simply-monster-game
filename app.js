@@ -41,6 +41,7 @@ try {
 } catch (error) {
   console.log(error);
   chosenMaxLife = 100;
+  console.log('Invalid user input, default number set to 100');
 }
 
 let currentPlayerHealth = chosenMaxLife;
