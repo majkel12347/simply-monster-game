@@ -209,11 +209,6 @@ function strongAttack() {
 }
 
 function printLogHandler() {
-  // adding loop
-  /*  for (let i = 0; i < battleLog.length; i++) {
-    let element = battleLog[i];
-    console.log(element);
-  } */
   let i = 0;
   for (const logEntry of battleLog) {
     if ((!lastLogEntry && lastLogEntry !== 0) || lastLogEntry < i) {
