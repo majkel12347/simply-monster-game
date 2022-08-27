@@ -35,7 +35,7 @@ function getMaxLifeValues() {
 
 let chosenMaxLife;
 
-// put to try only that pieces of code, what can't be controled, like input from above... and Network Errors
+// put to try only that pieces of code, what can't be controled, like input from above... and Network Errors!
 try {
   chosenMaxLife = getMaxLifeValues();
 } catch (error) {
